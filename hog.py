@@ -23,8 +23,9 @@ def roll_dice(num_rolls, dice=six_sided):
     count_zero = 0
     sum_num = 0
     while i <= num_rolls:
-    	if dice != 1:
-    		sum_num += dice
+    	current_point = dice()
+    	if current_point != 1:
+    		sum_num += current_point
     	else:
     		count_zero += 1
     	i += 1
