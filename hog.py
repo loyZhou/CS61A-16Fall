@@ -39,7 +39,10 @@ def roll_dice(num_rolls, dice=six_sided):
 def free_bacon(opponent_score):
     """Return the points scored from rolling 0 dice (Free Bacon)."""
     # BEGIN PROBLEM 2
-    "*** REPLACE THIS LINE ***"
+    if opponent_score < 10:
+    	return 1 + opponent_score
+    else:
+    	return 1 + max(opponent_score // 10,opponent_score % 10)
     # END PROBLEM 2
 
 
