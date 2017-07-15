@@ -47,7 +47,28 @@ def free_bacon(opponent_score):
 
 
 # Write your prime functions here!
+def is_prime(current_score):
+	"""Return True of False if current_score is a prime number."""
+	#1 is not a prime number
+	if current_score == 1:
+		return False
+	# loop through from 2 to current_score - 1
+	for i in range(2,current_score):
+		#if remainder is 0, then it is not a prime number
+		if current_score % i == 0:
+			return False
+	# if after loop, there is no return, indicating it is a prime number:
+	return True
 
+def next_prime(current_score):
+	"""Used to find the next prime of current_score"""
+	#starting from current_score + 1, check one after another if it is prime number
+	#by calling function is_prime
+	i = current_score + 1
+	while True:
+		if is_prime(i):
+			return i
+		i += 1
 
 def take_turn(num_rolls, opponent_score, dice=six_sided):
     """Simulate a turn rolling NUM_ROLLS dice, which may be 0 (Free Bacon).
