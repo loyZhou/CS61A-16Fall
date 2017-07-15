@@ -60,6 +60,7 @@ def is_prime(current_score):
 	# if after loop, there is no return, indicating it is a prime number:
 	return True
 
+
 def next_prime(current_score):
 	"""Used to find the next prime of current_score"""
 	#starting from current_score + 1, check one after another if it is prime number
@@ -85,7 +86,17 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
     assert num_rolls <= 10, 'Cannot roll more than 10 dice.'
     assert opponent_score < 100, 'The game should be over.'
     # BEGIN PROBLEM 2
-    "*** REPLACE THIS LINE ***"
+    if num_rolls == 0:
+    	current_score = free_bacon(opponent_score)
+    else:
+    	current_score = roll_dice(num_rolls,dice)
+    #Apply Hogtimus Prime rule after Free Bacon
+    if is_prime(current_score):
+    	current_score = next_prime(current_score)
+    #Apply Pigs Fly
+    print(current_score)
+    current_score = min(current_score,25 - num_rolls) 
+    return current_score
     # END PROBLEM 2
 
 
