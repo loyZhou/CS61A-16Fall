@@ -24,6 +24,7 @@ def roll_dice(num_rolls, dice=six_sided):
     sum_num = 0
     while i <= num_rolls:
     	current_point = dice()
+    	#Apply Pig Out Rule
     	if current_point != 1:
     		sum_num += current_point
     	else:
